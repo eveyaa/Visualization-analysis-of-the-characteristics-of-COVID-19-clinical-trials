@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+             title: {
+                 text: 'Registration volume(Per month)'
+             },
+             tooltip: {
+                 trigger: 'axis'
+             },
+             legend: {
+                 data: ['January', 'February', 'March'],
+                 textStyle: { //图例文字的样式
+            fontSize: 16,
+            },
+             },
+             grid: {
+                 left: '3%',
+                 right: '4%',
+                 bottom: '3%',
+                 containLabel: true
+             },
+             toolbox: {
+                 feature: {
+                     saveAsImage: {}
+                 }
+             },
+             xAxis: {
+                 type: 'category',
+                 boundaryGap: false,
+                 data: ['1st', '2th', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th', '13th',
+                        '14th', '15th', '16th', '17th', '18th', '19th', '20th', '21st', '22th', '23rd', '24th', '25th',
+                        '26th', '27th', '28th', '29th', '30th', '31st'],
+            axisLabel:{
+　　　　　　　  textStyle:{   //textStyle里面写x轴下的字体的样式
+　　　　　　　  fontSize:15,
+                },
+             },
+             },
+             yAxis: {
+                 type: 'value',
+                 yAxisLabel:{
+                     show : true,
+                     textStyle:{   //textStyle里面写x轴下的字体的样式
+                     fontSize:18,
+                },
+                 },
+             },
+             series: [
+                 {
+                    name: 'e',
+                    type: 'line',
+         },
+         {
+             name: 'March',
+             type: 'line',
+             data: [12,25,44,50,55,68,73,82,86,94,106,112,135,140,168,193,204,222,228,247,249,256,264,282,302,324,355,358],
+             itemStyle: {
+                 normal: {
+                         // 拐点上显示数值
+                 label: {
+                     show: false,
+                     fontSize:13,
+                 }
+             }
+         }
+},
+{
+    name: 'February',
+    type: 'line',
+    symbol: 'true',
+    data: [10,18,24,30,44,50,61,65,67,74,81,92,108,123,135,147,159,180,200,211,229,239,250,267,274,287,293,310,312],
+    itemStyle: {
+        normal: {
+                // 拐点上显示数值
+        label: {
+            show: false,
+            fontSize:13,
+            position: 'bottom',
+        }
+    }
+}
+},
+{
+    name: 'January',
+    type: 'line',
+    symbol: 'none',
+    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 6, 7, 7],
+//     itemStyle: {
+//         normal: {
+//                 // 拐点上显示数值
+//         label: {
+//             show: true
+//         }
+//     }
+// }
+},
+
+]
+};;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
