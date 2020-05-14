@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0px">
+<div id="container" style="height: 100%;" ></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    var categories = [];
+
+    option = {
+        tooltip: {
+        },
+
+
+        legend: {
+            orient: 'vertical',
+            icon: "rect",
+            x: 'left',
+            padding:[20,0,0,10],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
+            data: ['Arbidol', 'Baricitinib', 'Bromhexine', 'Camrelizumab',
+                'Carrimycin', 'Cobicistat', 'Darunavir', 'Emtritabine', 'Favipiravir', 'Ganovo/ritonavir',
+                'Interferon', 'Lopinavir/ritonavir', 'Oseltamivir',
+                'Ritonavir', 'Ribavirin', 'Tenofovir Alafenamide Fumarate', 'Thymosin', 'Tocilizumab'],
+            textStyle:{
+                color:'#0b2b5e',
+                fontSize:16
+            }
+        },
+        edgeSymbol: ['circle'],
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },//保存为图片
+        series: [
+            {
+                type: 'graph',
+                layout: 'circular',
+                roam: true,
+                // grid: [{
+                //     left: 30,
+                //     bottom: 30,
+                //     top: 30,
+                //     right: 30
+                // }],
+                // radius: '4 5%',
+                // center:[400,400],
+                color: ['#C23531', '#334B5C', '#61A0A8', '#D48265',
+                    '#91C7AE', '#749F83', '#CA8622', '#BDA29A',
+                    '#6E7074', '#546570', '#C4CCD3', '#EE7621',
+                    '#8B3A62', '#436EEE', '#8B864E', '#698B22',
+                    '#4B0082', '#8B8386'],
+                circular: {
+                    rotateLabel: true,
+
+                },
+                categories: [
+                    {name: 'Arbidol'},
+                    {name: 'Baricitinib'},
+                    {name: 'Bromhexine'},
+                    {name: 'Camrelizumab'},
+                    {name: 'Carrimycin'},
+                    {name: 'Cobicistat'},
+                    {name: 'Darunavir'},
+                    {name: 'Emtritabine'},
+                    {name: 'Favipiravir'},
+                    {name: 'Ganovo/ritonavir'},
+                    {name: 'Interferon'},
+                    {name: 'Lopinavir/ritonavir'},
+                    {name: 'Oseltamivir'},
+                    {name: 'Ritonavir'},
+                    {name: 'Ribavirin'},
+                    {name: 'Tenofovir Alafenamide Fumarate'},
+                    {name: 'Thymosin'},
+                    {name: 'Tocilizumab'}
+                ],
+                data:[
+                    {name: 'Tenofovir Alafenamide Fumarate',  symbolSize: 30,
+                        category: 'Tenofovir Alafenamide Fumarate',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#698B22'
+                        }},
+                    {name: 'Lopinavir/ritonavir',  symbolSize: 70, category: 'Lopinavir/ritonavir',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#EE7621'
+                        }},
+                    {name: 'Arbidol',  symbolSize: 60, category: 'Arbidol',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true,
+                        },
+                        itemStyle: {
+                            color: '#C23531'
+                        }},
+                    {name: 'Baricitinib', symbolSize: 40, category: 'Baricitinib',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#334B5C'
+                        }},
+                    {name: 'Bromhexine', symbolSize: 30, category: 'Bromhexine',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#61A0A8'
+                        }},
+                    {name: 'Camrelizumab', symbolSize: 40, category: 'Camrelizumab',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#D48265'
+                        }},
+                    {name: 'Carrimycin',  symbolSize: 40, category: 'Carrimycin',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#91C7AE'
+                        }},
+                    {name: 'Cobicistat',  symbolSize: 30, category: 'Cobicistat',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#749F83'
+                        }},
+                    {name: 'Darunavir',  symbolSize: 30, category: 'Darunavir',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#CA8622'
+                        }},
+                    {name: 'Emtritabine',  symbolSize: 30, category: 'Emtritabine',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#BDA29A'
+                        }},
+                    {name: 'Favipiravir', symbolSize: 50, category: 'Favipiravir',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#6E7074'
+                        }},
+                    {name: 'Ganovo/ritonavir', symbolSize: 40, category: 'Ganovo/ritonavir',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#546570'
+                        }},
+                    {name: 'Interferon',  symbolSize: 80, category: 'Interferon',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#C4CCD3'
+                        }},
+                    //Lopinavir/ritonavir
+
+                    {name: 'Oseltamivir',  symbolSize: 30, category: 'Oseltamivir',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#8B3A62'
+                        }},
+                    {name: 'Ritonavir', symbolSize: 30, category: 'Ritonavir',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#436EEE'
+                        }},
+                    {name: 'Ribavirin',  symbolSize: 70, category: 'Ribavirin',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#8B864E'
+                        }},
+                   // 长
+                    {name: 'Thymosin',  symbolSize: 50, category: 'Thymosin',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#4B0082'
+                        }},
+                    {name: 'Tocilizumab', symbolSize: 50,category: 'Tocilizumab',
+                        label: {
+                            fontWeight: 'bolder',
+                            fontSize:15,
+                            color: '#333',
+                            show: true
+                        },
+                        itemStyle: {
+                            color: '#8B8386'
+                        }}
+                ],
+                links:[
+                    {source: 'Arbidol', target: 'Interferon',
+                        lineStyle: {
+                            color: 'source',
+                            width:8,
+                            curveness: 0.3
+                        }},
+                    {source: 'Arbidol', target: 'Ribavirin', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Arbidol', target: 'Bromhexine', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Baricitinib', target: 'Ritonavir', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Bromhexine', target: 'Interferon', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Camrelizumab', target: 'Thymosin', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Carrimycin', target: 'Lopinavir/ritonavir', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Cobicistat', target: 'Darunavir', weight: 2,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Emtritabine', target: 'Lopinavir/ritonavir', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Emtritabine', target: 'Tenofovir Alafenamide Fumarate', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Favipiravir', target: 'Tocilizumab', weight: 2,
+                        lineStyle: {
+                            width:4,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Favipiravir', target: 'Lopinavir/ritonavir', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Ganovo/ritonavir', target: 'Interferon', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Interferon', target: 'Ribavirin', weight: 2,
+                        lineStyle: {
+                            width:4,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Interferon', target: 'Thymosin', weight: 2,
+                        lineStyle: {
+                            width:4,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Lopinavir/ritonavir', target: 'Interferon', weight: 6,
+                        lineStyle: {
+                            width:12,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Lopinavir/ritonavir', target: 'Tenofovir Alafenamide Fumarate', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Lopinavir/ritonavir', target: 'Oseltamivir', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Lopinavir/ritonavir', target: 'Ribavirin', weight: 1,
+                        lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }},
+                    {source: 'Oseltamivir', target: 'Ritonavir', weight: 1,lineStyle: {
+                            width:2,
+                            color: 'source',
+                            curveness: 0.3
+                        }}
+                ],
+                // label: {
+                //     position: 'right',
+                //     formatter: '{b}'
+                // },
+                // emphasis: {
+                //     lineStyle: {
+                //         width: 1
+                //     }
+                // }
+            }
+         ],
+
+
+
+    };
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+        window.onresize = myChart.resize;
+    }
+
+</script>
+</body>
+</html>

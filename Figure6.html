@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+
+    option = {
+        dataset: {
+            source: [
+                ['score', 'amount', 'product','test'],
+                [300, 55, 'Time to clinical recovery','11'],
+                [280, 47, 'Clinical parameters and laboratory index'],
+                [260.4, 45, 'The change of pneumonia severity'],
+                [240.1, 40, 'Questionnaire or scale'],
+                [220, 33, 'Virus negative conversion rate or time'],
+                [200, 30, 'Cure rate'],
+                [180, 25, 'Mortality'],
+                [160.6, 23, 'Fever to normal time'],
+                [140.7, 23, 'Imaging features'],
+                [120.6, 21, 'Incidence of adverse reactions'],
+                [100.6, 15, 'Clinical or epidemiological characteristics'],
+                [80.6, 14, 'Psychological status'],
+                [60.6, 13, 'The length of hospital stay'],
+                [40.6, 7, 'TCM symptom score'],
+                [20.6, 16, 'Other'],
+            ]
+        },
+        grid: {containLabel: true},
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },//保存为图片
+        xAxis: {name: 'amount',
+            nameTextStyle: {
+                fontSize:15
+            },
+            axisLabel: {
+               textStyle: {
+                    fontSize:15
+                }
+            }
+
+        },
+        yAxis: {
+            data: ["Time to clinical recovery",
+                "Clinical parameters and laboratory index",
+                "The change of pneumonia severity",
+                "Questionnaire or scale",
+                "Virus negative conversion rate or time",
+                "Cure rate", "Mortality","Fever to normal time","Imaging features",
+                "Incidence of adverse reactions",
+                "Clinical or epidemiological characteristics",
+                "Psychological status","The length of hospital stay","TCM symptom score","Other"],
+            axisLabel: {
+                textStyle: {
+                    fontSize:15
+                }
+            }
+            },
+        visualMap: {
+            orient: 'horizontal',
+            left: 'center',
+            min: 10,
+            max: 55,
+            text: ['High Score', 'Low Score'],
+            // Map the score column to color
+            dimension: 0,
+            inRange: {
+                color: ['#D7DA8B', '#E15457']
+            },
+            textStyle: {
+                fontSize:15
+            },
+            show: false
+        },
+        series: [
+            {type: 'bar',
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: function(v) {
+                            var val = v.data;
+                            return val + ' '+'('+ (val/407*100).toFixed(2) +'%)';
+                        },
+                        color: '#000000',
+                        fontSize:15
+                    }
+                },
+                data: [55, 47, 45, 40, 33, 30, 25,23,23,21,15,14,13,7,16],
+            }]
+    };
+
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
